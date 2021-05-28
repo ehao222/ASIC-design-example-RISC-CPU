@@ -1,0 +1,26 @@
+//opcode_operand  // addr                     assembly code
+//--------------  // ----  ----------------------------------------------------
+    101_11011     //  00           LDA FN2    //load in [FN2] into accum
+    011_11110     //  01           AND ZERO   // rst
+    110_11011     //  02           STO FN2    //store result in FN2
+    111_00101     //  03           JMP LOOP   //jump to the address of LOOP
+@05 101_11011     //  05   LOOP:   LDA FN2    //load value in FN2 into accum
+    110_11100     //  06           STO TEMP   //store accumulator in TEMP
+    010_11011     //  07           ADD FN2    //add value in FN2 to accumulator
+    110_11011     //  08           STO FN2    //store result in FN2
+    100_11101     //  09           XOR LIMIT  //compare accumulator to LIMIT
+    001_00000     //  0A           SKZ        //if accum = 0, skip to AGAIN
+    111_01101     //  0B           JMP AGAIN
+    000_00000     //  0C   	   HLT        //end of program
+@0D 101_11100     //  0D   AGAIN:  LDA TEMP
+    010_11111     //  0E           ADD ONE
+    110_11011     //  0F           STO FN2
+    111_00101     //  10           JMP LOOP   //jump to address of LOOP
+
+
+
+@1B 01101011      //  1B   FN2:               //variable - stores 2nd Fib. No.
+    00000000      //  1C   TEMP:              //temporary variable
+    00010010      //  1D   LIMIT:             //constant 18 - max value
+    00000000      //  1E   ZERO:              //constant 0
+    00000001      //  1F   ONE:               //constant 1
