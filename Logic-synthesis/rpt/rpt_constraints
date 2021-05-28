@@ -1,0 +1,63 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : control_pad
+Version: H-2013.03-SP5-2
+Date   : Fri Apr 23 19:52:48 2021
+****************************************
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   opcode[0] (dont_touch)       1.02          14.61         -13.59  (VIOLATED)
+       PORT :  opcode[0]        1.02          14.61         -13.59  (VIOLATED)
+   opcode[1] (dont_touch)       1.02          14.61         -13.59  (VIOLATED)
+       PORT :  opcode[1]        1.02          14.61         -13.59  (VIOLATED)
+   opcode[2] (dont_touch)       1.02          14.61         -13.59  (VIOLATED)
+       PORT :  opcode[2]        1.02          14.61         -13.59  (VIOLATED)
+   rst_                         1.02          14.61         -13.59  (VIOLATED)
+       PORT :  rst_             1.02          14.61         -13.59  (VIOLATED)
+   zero                         1.02          14.61         -13.59  (VIOLATED)
+       PORT :  zero             1.02          14.61         -13.59  (VIOLATED)
+   halt_pad (dont_touch)        1.02           2.39          -1.37  (VIOLATED)
+       PIN :   U17/Y            1.02           2.39          -1.37  (VIOLATED)
+   wr_pad (dont_touch)          1.02           2.02          -1.00  (VIOLATED)
+       PIN :   U3/Y             1.02           2.02          -1.00  (VIOLATED)
+   data_e_pad (dont_touch)      1.02           2.02          -1.00  (VIOLATED)
+       PIN :   U20/Y            1.02           2.02          -1.00  (VIOLATED)
+   ld_ac_pad (dont_touch)       1.02           1.32          -0.30  (VIOLATED)
+       PIN :   U8/Y             1.02           1.32          -0.30  (VIOLATED)
+   rd_pad (dont_touch)          1.02           1.14          -0.12  (VIOLATED)
+       PIN :   U31/Y            1.02           1.14          -0.12  (VIOLATED)
+   inc_pc_pad (dont_touch)      1.02           1.14          -0.12  (VIOLATED)
+       PIN :   U27/Y            1.02           1.14          -0.12  (VIOLATED)
+   ld_pc_pad (dont_touch)       1.02           1.08          -0.06  (VIOLATED)
+       PIN :   U29/Y            1.02           1.08          -0.06  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      12                -71.94  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   opcode[0] (dont_touch)       0.34           6.71          -6.37  (VIOLATED)
+   opcode[1] (dont_touch)       0.34           6.71          -6.37  (VIOLATED)
+   opcode[2] (dont_touch)       0.34           6.71          -6.37  (VIOLATED)
+   rst_                         0.34           6.71          -6.37  (VIOLATED)
+   zero                         0.34           6.71          -6.37  (VIOLATED)
+   data_e_pad (dont_touch)      0.04           0.08          -0.03  (VIOLATED)
+   halt_pad (dont_touch)        0.04           0.08          -0.03  (VIOLATED)
+   ld_ac_pad (dont_touch)       0.04           0.08          -0.03  (VIOLATED)
+   wr_pad (dont_touch)          0.04           0.08          -0.03  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      9                 -31.98  
+
+1

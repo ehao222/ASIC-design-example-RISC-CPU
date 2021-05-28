@@ -1,0 +1,31 @@
+ 
+****************************************
+Report : area
+Design : control_pad
+Version: H-2013.03-SP5-2
+Date   : Fri Apr 23 19:52:48 2021
+****************************************
+
+Library(s) Used:
+
+    typical_1v2c25 (File: /home1/lib/smic/aci/sc-x/synopsys/typical_1v2c25.db)
+    SP013D3_V1p2_typ (File: /home1/lib/smic/SP013D3_V1p4/syn/SP013D3_V1p2_typ.db)
+
+Number of ports:                           15
+Number of nets:                            49
+Number of cells:                           41
+Number of combinational cells:             23
+Number of sequential cells:                 3
+Number of macros/black boxes:              15
+Number of buf/inv:                          2
+Number of references:                      20
+
+Combinational area:                152.765999
+Buf/Inv area:                        6.789600
+Noncombinational area:              96.751797
+Macro/Black Box area:           103425.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                103674.517796
+Total area:                 undefined
+1
