@@ -1,0 +1,24 @@
+
+
+
+//This code is a %100 counter.
+
+//opcode_operand   // addr         assembly code
+//--------------------  // ------  --------------------------------------------
+         101_11010       //  00               LDA CNT              //load in [CNT] into accum
+         011_11101       //  01               AND ZERO          // rst
+         110_11010      //   02               STO CNT             //store result in CNT
+         111_00101      //   03               JMP LOOP          //jump to the address of LOOP
+@05 101_11010      //   05  LOOP:   LDA CNT            //load in [CNT] into accum
+         010_11110     //   06                ADD ONE           //add ONE to accumulator
+         110_11010     //   07                STO CNT           //store result in CNT
+         100_11100     //   08                XOR LIMIT         //compare accumulator to LIMIT
+         001_00000     //   09                SKZ                    //if accum = 0, skip to DONE
+         111_00011     //   0A               JMP LOOP         //jump to address of LOOP
+         000_00000     //   0B                HLT                   //end of program
+
+@1A 011_00011     //   1A   CNT:                             //variable - stores CNTout Initial99
+         000_00000     //   1B   TEMP:                           //temporary variable0
+         011_00100     //   1C   LIMIT:                           //constant 100 max value
+         000_00000     //   1D   ZERO:                          //constant 0
+         000_00001     //   1E   ONE:                            //constant 1
