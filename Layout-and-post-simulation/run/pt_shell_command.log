@@ -1,0 +1,84 @@
+#@ # 
+#@ # Running pt_shell Version H-2013.06-SP3-2 for amd64 -- Dec 19, 2013
+#@ # Date:   Fri May  7 19:51:55 2021
+#@ # Run by: a108@tty2
+#@ 
+
+source /opt/synopsys/pts_vH-2013.06-SP3-2/admin/setup/.synopsys_pt.setup
+#@ # -- Starting source /opt/synopsys/pts_vH-2013.06-SP3-2/admin/setup/.synopsys_pt.setup
+
+#@ #
+#@ # .synopsys_pt.setup: Initialization File for PrimeTime
+#@ #
+#@ 
+#@ 
+#@ #
+#@ # Enable stack trace output on fatal.  Not available for all architectures.
+#@ #
+#@ if { $sh_arch == "sparcOS5" || $sh_arch == "hpux10" ||      $sh_arch == "hp32" || $sh_arch == "linux" } {
+#@   set_unix_variable SYNOPSYS_TRACE ""
+#@ }
+#@ 
+#@ #
+#@ # Variable settings
+#@ #
+#@ 
+#@ #
+#@ # Synopsys strongly recommends that you use new variable message
+#@ # tracing for debugging purposes only.
+#@ #
+#@ set sh_new_variable_message true
+#@ 
+#@ #
+#@ # Synopsys strongly recommends that you uncomment the following command
+#@ # in order to set sh_command_abbrev_mode to the value "Command-Line-Only".
+#@ # Command abbreviation is intended as an interactive convenience.  Using
+#@ # abbreviations in scripts can cause commands to fail in subsequent releases.
+#@ # 
+#@ #set sh_command_abbrev_mode "Command-Line-Only"
+#@ 
+#@ #
+#@ # Some useful aliases
+#@ #
+#@ alias list_commands		help
+#@ alias report_constraints	report_constraint
+#@ alias report_clocks		report_clock
+#@ 
+#@ #
+#@ # The alias for get_clock was added when get_clock_network_objects
+#@ # was introduced, as it conflicts with get_clocks (and get_clock is a
+#@ # typical abbreviation for get_clocks)
+#@ #
+#@ alias get_clock get_clocks
+#@ 
+#@ 
+#@ #
+#@ #
+#@ # The alias of q to quit is commented out.  Remove the comment 
+#@ # character if you want this alias.  Some users find that having 
+#@ # this particular alias causes problems when mixed with page-mode
+#@ # for reports - an accidental repeated 'q' not only cancels the
+#@ # output but exits the tool.
+#@ #
+#@ #alias q quit
+#@ 
+#@ # -- End source /opt/synopsys/pts_vH-2013.06-SP3-2/admin/setup/.synopsys_pt.setup
+
+source sdf_gen.tcl
+#@ # -- Starting source sdf_gen.tcl
+
+#@ set link_library "/home1/lib/smic/SP013D3_V1p4/syn/SP013D3_V1p2_typ.db /home1/lib/smic/aci/sc-x/synopsys/typical_1v2c25.db"
+#@ read_verilog ../output/control_pad_final.v
+#@ current_design control_pad
+#@ read_db /home1/lib/smic/aci/sc-x/synopsys/typical_1v2c25.db
+#@ read_db /home1/lib/smic/SP013D3_V1p4/syn/SP013D3_V1p2_typ.db
+#@ read_parasitics -pin_cap_included ../output/control_pad.spef
+#@ read_parasitics -pin_cap_included   { {../output/control_pad.spef} }
+
+#@ write_sdf ../output/control_pad.sdf
+#@ pl_dump -stop_server
+
+#@ 
+#@ # -- End source sdf_gen.tcl
+
+quit
